@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+    left: 0;
+    right: 0;
+}
+
+body {
+    background-color: black !important;
+}
+
+.my-logo {
+    width: 101px;
+    height: 101px;
+    border-radius: 50px;
+}
+
+#fixed_top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.top {
+    padding-top: 120px;
+}
+
+.none {
+    color: #ff7fc2;
+    text-decoration: none;
+}
+
+#password {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#password::placeholder {
+    color: #ffffff; 
+    opacity: 1;
+}
+
+#email {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#email::placeholder {
+    color: #ffffff; 
+    opacity: 1;
+}
+
+#first_name {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#first_name::placeholder {
+    color: #ffffff; 
+    opacity: 1;
+}
+
+#last_name {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#last_name::placeholder {
+    color: #ffffff; 
+    opacity: 1;
+}
+
+#confirm_password {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#confirm_password::placeholder {
+    color: #ffffff; 
+    opacity: 1;
+}
+
+#username {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#username::placeholder {
+    color: #ffffff; 
+    opacity: 1;
+}
+
+#profile_img {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#profile_img::placeholder {
+    color: #ffffff; 
+    opacity: 1;
+}
+
+.gradient-btn {
+    color: #ffffff;
+    background-color: transparent;
+    background-image: linear-gradient(120deg, #b47cfd 20%, #ff7fc2 60%);
+    box-shadow: -25px 0px 20px -10px #FFB07B inset;
+    border-style: solid;
+    border-width: 0px 0px 0px 0px;
+    border-color: #b47cfd;
+    border-radius: 30px 30px 30px 30px;
+    padding: 10px 20px;
+}
+
+.gradient-btn:hover {
+    box-shadow: 0 8px 20px rgba(128, 128, 128, 0.7);
+}
+
+/* footer */
+footer {
+    background: rgba(47, 79, 79, 0.5);
+    background-image: url('..//images/banner.png');
+}
+
+.social-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+}
+
+.social-icon.facebook {
+    color: #1877f2;
+}
+
+.social-icon.instagram {
+    color: #e4405f;
+}
+
+.social-icon.linkedin {
+    color: #0a66c2;
+}
+
+.social-icon.youtube {
+    color: #ff0000;
+}
+
+.social-icon.github {
+    color: #fff;
+}
+
+.social-icon.twitter {
+    color: #1da1f2;
+}
