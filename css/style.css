@@ -98,6 +98,17 @@ body {
     opacity: 1;
 }
 
+#user {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#user::placeholder {
+    color: #ffffff;
+    opacity: 1;
+}
+
 #profile_img {
     background-color: rgba(52, 58, 64, 1);
     border: none;

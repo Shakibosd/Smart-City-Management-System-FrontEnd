@@ -30,53 +30,53 @@
         <section class="top container">
             <h1 class="text-center text-light">Your Profile</h1>
             <br>
-            <div class="text-light hovers p-4 card bg-dark mx-auto w-100" style="border-radius: 10px;">
+            <div class="text-light hovers p-4 card bg-dark mx-auto w-75" style="border-radius: 10px;">
                 <img alt="logo" id="img_logo" class="img-fluid mx-auto d-block"
                     style="border-radius: 250px; width: 350px; height: 350px;">
-                <i class='bx bx-edit-alt' ></i>
+                <i class='bx bx-edit-alt'></i>
                 <hr>
-                <h3>ID : <span id="id"></span></h3>
                 <form class="row g-3">
-                    <div class="cal-12">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" name="username" id="username" class="form-control" />
-                    </div>
-                    <div class="cal-12">
-                        <label class="form-label">Email</label>
-                        <input type="email" name="email" id="email" class="form-control" />
-                    </div>
-                    <div class="cal-12">
-                        <label class="form-label">First Name</label>
-                        <input type="text" name="first_name" id="first_name" class="form-control" />
-                    </div>
-                    <div class="cal-12">
-                        <label class="form-label">Last Name</label>
-                        <input type="text" name="last_name" id="last_name" class="form-control" />
-                    </div>
-                    <div class="cal-12">
-                        <label class="form-label">Gender</label>
-                        <input type="text" name="gender" id="gender" class="form-control" />
-                    </div>
-                    <div class="cal-12">
-                        <label class="form-label">Religion</label>
-                        <input type="text" name="religion" id="religion" class="form-control" />
-                    </div>
-                    <div class="cal-12">
-                        <label class="form-label">Phone Number</label>
-                        <input type="text" name="phone_number" id="phone_number" class="form-control" />
-                    </div>
-                    <div class="cal-12">
-                        <label class="form-label">Age</label>
-                        <input type="number" name="age" id="age" class="form-control" />
-                    </div>
-                    <div class="cal-12">
-                        <label class="form-label">Date Of Birth</label>
-                        <input type="" name="date_of_birth" id="date_of_birth"
-                            class="form-control" />
+                    <div class="form-group">
+                        <div class="cal-12">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" name="username" id="username" class="form-control" />
+                        </div>
+                        <div class="cal-12">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" id="email" class="form-control" />
+                        </div>
+                        <div class="cal-12">
+                            <label class="form-label">First Name</label>
+                            <input type="text" name="first_name" id="first_name" class="form-control" />
+                        </div>
+                        <div class="cal-12">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" name="last_name" id="last_name" class="form-control" />
+                        </div>
+                        <div class="cal-12">
+                            <label class="form-label">Gender</label>
+                            <input type="text" name="gender" id="gender" class="form-control" />
+                        </div>
+                        <div class="cal-12">
+                            <label class="form-label">Religion</label>
+                            <input type="text" name="religion" id="religion" class="form-control" />
+                        </div>
+                        <div class="cal-12">
+                            <label class="form-label">Phone Number</label>
+                            <input type="text" name="phone_number" id="phone_number" class="form-control" />
+                        </div>
+                        <div class="cal-12">
+                            <label class="form-label">Age</label>
+                            <input type="number" name="age" id="age" class="form-control" />
+                        </div>
+                        <div class="cal-12">
+                            <label class="form-label">Date Of Birth</label>
+                            <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" />
+                        </div>
                     </div>
                 </form>
                 <br>
-                <button class="gradient-btn"><b>Update Profile</b></button>
+                <button class="gradient-btn w-25" onclick="updateProfile()"><b>Update Profile</b></button>
             </div>
         </section>
     </main>
