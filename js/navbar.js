@@ -79,13 +79,13 @@ fetch("navbar.html")
         if (token) {
             navElement.innerHTML += `
                 <li class="nav-item">
-                    <a class="nav-link text-light" href=""><b>Home</b></a>
+                    <a class="nav-link text-light" href="./auth_home.html"><b>Home</b></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href=""><b>Profile</b></a>
+                    <a class="nav-link text-light" href="./profile.html"><b>Profile</b></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href=""><b>Logout</b></a>
+                    <a class="nav-link text-danger" onclick="handleLogout()"><b>Logout</b></a>
                 </li>
             `;
         }

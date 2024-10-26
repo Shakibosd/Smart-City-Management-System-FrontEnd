@@ -6,13 +6,13 @@
 }
 
 body {
-    background-color: black !important;
+    background-color: rgb(0, 0, 0, 0.9) !important;
 }
 
 .my-logo {
-    width: 101px;
-    height: 101px;
-    border-radius: 50px;
+    width: 90px;
+    height: 90px;
+    border-radius: 55px;
 }
 
 #fixed_top {
@@ -39,7 +39,7 @@ body {
 }
 
 #password::placeholder {
-    color: #ffffff; 
+    color: #ffffff;
     opacity: 1;
 }
 
@@ -50,7 +50,7 @@ body {
 }
 
 #email::placeholder {
-    color: #ffffff; 
+    color: #ffffff;
     opacity: 1;
 }
 
@@ -61,7 +61,7 @@ body {
 }
 
 #first_name::placeholder {
-    color: #ffffff; 
+    color: #ffffff;
     opacity: 1;
 }
 
@@ -72,7 +72,7 @@ body {
 }
 
 #last_name::placeholder {
-    color: #ffffff; 
+    color: #ffffff;
     opacity: 1;
 }
 
@@ -83,7 +83,7 @@ body {
 }
 
 #confirm_password::placeholder {
-    color: #ffffff; 
+    color: #ffffff;
     opacity: 1;
 }
 
@@ -94,7 +94,7 @@ body {
 }
 
 #username::placeholder {
-    color: #ffffff; 
+    color: #ffffff;
     opacity: 1;
 }
 
@@ -105,8 +105,79 @@ body {
 }
 
 #profile_img::placeholder {
-    color: #ffffff; 
+    color: #ffffff;
     opacity: 1;
+}
+
+#phone_number {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#phone_number::placeholder {
+    color: #ffffff;
+    opacity: 1;
+}
+
+#gender {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#gender::placeholder {
+    color: #ffffff;
+    opacity: 1;
+    border: none;
+}
+
+#religion {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#religion::placeholder {
+    color: #ffffff;
+    opacity: 1;
+    border: none;
+}
+
+#age {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#age::placeholder {
+    color: #ffffff;
+    opacity: 1;
+    border: none;
+}
+
+#date_of_birth {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#date_of_birth::placeholder {
+    color: #ffffff;
+    opacity: 1;
+    border: none;
+}
+
+#new_password {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#new_password::placeholder {
+    color: #ffffff;
+    opacity: 1;
+    border: none;
 }
 
 .gradient-btn {
@@ -125,9 +196,50 @@ body {
     box-shadow: 0 8px 20px rgba(128, 128, 128, 0.7);
 }
 
+.input-group-text {
+    cursor: pointer;
+}
+
+/* profile */
+.profile-container {
+    width: 100%;
+    max-width: 600px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info p {
+    margin: 10px 0;
+}
+
+#editButton, #saveButton {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#editForm input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.hovers{
+    box-shadow: 0px 3px 5px gray;
+}
+
 /* footer */
 footer {
-    background: rgba(47, 79, 79, 0.5);
+    background: rgba(47, 79, 79, 0.6);
     background-image: url('..//images/banner.png');
 }
 

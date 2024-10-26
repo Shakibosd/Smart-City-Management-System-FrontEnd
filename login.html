@@ -36,22 +36,33 @@
                                 <div class="card-body">
                                     <h3 class="text-center text-light">Log In To Smart City Management</h3>
                                     <br>
-                                    <form class="row g-4">
+                                    <form class="row g-4" onsubmit="handleLogin(event)" id="login-form">
                                         <div class="form-group">
-                                            <input type="password" class="form-control" id="password"
-                                                placeholder="Please Enter Your Password" required>
+                                            <input type="text" class="form-control p-2" id="username" name="username"
+                                                placeholder="Please Enter Your Username" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control" id="confirm_password"
-                                                placeholder="Please Enter Your Confirm Password" required>
+                                            <div class="input-group">
+                                                <input type="password" class="form-control" id="password"
+                                                    name="password"
+                                                    placeholder="Please Enter Your password" required>
+                                                <span class="input-group-text p-2"
+                                                    style="border: none; background-color: black; color: white;"
+                                                    onclick="togglePassword('password', this)">
+                                                    <i class='bx bxs-low-vision'></i>
+                                                </span>
+                                            </div>
                                         </div>
                                         <br>
                                         <button type="submit" class="gradient-btn w-100">Login</button>
                                     </form>
                                 </div>
                                 <div class="text-center text-light">
-                                    <p><a class="none" href=""><b>Forgotten Password?</b></a> &nbsp;&nbsp; <a class="none" href="./signup.html"><b>· Sign Up For Smart
-                                                City</b></a></p>
+                                    <p class="d-flex flex-column flex-md-row justify-content-center align-items-center">
+                                        <a class="none mb-2 mb-md-0" href="./password_reset.html"><b>Forgotten Password?</b></a>
+                                        <span class="d-none d-md-inline-block">&nbsp;&nbsp;</span>
+                                        <a class="none" href="./signup.html"><b>· Sign Up For Smart City</b></a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -68,6 +79,9 @@
         <div id="footer"></div>
         <script src="./js/footer.js"></script>
     </footer>
+
+    <!-- auth js -->
+    <script src="./js/auth.js"></script>
 
     <!-- bootstrap script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
