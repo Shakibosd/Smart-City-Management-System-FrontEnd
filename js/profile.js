@@ -78,6 +78,9 @@ const updateProfile = () => {
     });
 };
 
+profileDetails();
+updateProfile();
+
 
 function previewImage(event) {
   const img = document.getElementById('profile_img');
@@ -132,5 +135,3 @@ function previewImage(event) {
 }
 
 previewImage();
-profileDetails();
-updateProfile();
