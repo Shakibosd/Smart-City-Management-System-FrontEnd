@@ -78,5 +78,59 @@ const updateProfile = () => {
     });
 };
 
+
+function previewImage(event) {
+  const img = document.getElementById('profile_img');
+  const file = event.target.files[0];
+
+  img.src = URL.createObjectURL(file);
+
+  const formData = new FormData();
+  formData.append('image', file);
+
+  fetch(`https://api.imgbb.com/1/upload?key=2bc3cad9a1fb82d25c2c1bb0ab49b035`, {
+    method: 'POST',
+    body: formData,
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        const imageUrl = data.data.display_url;
+
+        localStorage.setItem('profile_img', imageUrl);
+
+        const token = localStorage.getItem("authToken");
+        const userId = localStorage.getItem("user_id");
+
+        fetch(`http://127.0.0.1:8000/authentication/user_detail_profile/${userId}/`, {
+          method: "PUT",
+          headers: {
+            Authorization: `Token ${token}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ profile_img: imageUrl }),
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log("Image URL saved to backend successfully:", data);
+          })
+          .catch(error => {
+            console.error("Error:", error);
+          });
+      } else {
+        console.error("ImgBB upload failed:", data);
+      }
+    })
+    .catch(error => {
+      console.error("Error uploading image:", error);
+    });
+}
+
+previewImage();
 profileDetails();
 updateProfile();

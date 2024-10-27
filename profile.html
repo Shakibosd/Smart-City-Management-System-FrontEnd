@@ -33,7 +33,9 @@
             <div class="text-light hovers p-4 card bg-dark mx-auto w-75" style="border-radius: 10px;">
                 <img alt="logo" id="profile_img" class="img-fluid mx-auto d-block"
                     style="border-radius: 250px; width: 350px; height: 350px;">
-                <i class='bx bx-edit-alt'></i>
+                <i class='bx bx-edit-alt' onclick="document.getElementById('fileInput').click();"></i>
+                <input type="file" id="fileInput" style="display: none;" accept="image/*"
+                    onchange="previewImage(event)">
                 <hr>
                 <form class="row g-3">
                     <div class="form-group">
