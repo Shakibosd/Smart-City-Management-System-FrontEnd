@@ -95,10 +95,10 @@ fetch("navbar.html")
                     <a class="nav-link text-light" href="./index.html"><b>Home</b></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href=""><b>Contact</b></a>
+                    <a class="nav-link text-light" href="./contact.html"><b>Contact</b></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href=""><b>About</b></a>
+                    <a class="nav-link text-light" href="./abouts.html"><b>About</b></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-light" href="./signup.html"><b>SignUp</b></a>
