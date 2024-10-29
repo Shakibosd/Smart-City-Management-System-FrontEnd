@@ -24,6 +24,7 @@ body {
     border-radius: 55px;
 }
 
+
 #fixed_top {
     position: fixed;
     top: 0;
@@ -295,7 +296,7 @@ body {
 }
 
 .wow {
-    background: linear-gradient(90deg, #583cea 15.94%, #1cc8ff 89.53%);
+    background: linear-gradient(90deg, #411ef2 15.94%, #65c4e4 89.53%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
