@@ -6,7 +6,7 @@ const profileDetails = () => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Token ${token}`,
+      Authorization: `token ${token}`,
     },
   })
     .then((res) => {
@@ -56,7 +56,7 @@ const updateProfile = () => {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Token ${token}`,
+      Authorization: `token ${token}`,
     },
     body: JSON.stringify(data),
   })
@@ -81,55 +81,57 @@ const updateProfile = () => {
 profileDetails();
 updateProfile();
 
-
 function previewImage(event) {
-  const img = document.getElementById('profile_img');
+  const img = document.getElementById("profile_img");
   const file = event.target.files[0];
 
   img.src = URL.createObjectURL(file);
 
   const formData = new FormData();
-  formData.append('image', file);
+  formData.append("image", file);
 
   fetch(`https://api.imgbb.com/1/upload?key=2bc3cad9a1fb82d25c2c1bb0ab49b035`, {
-    method: 'POST',
+    method: "POST",
     body: formData,
   })
-    .then(response => response.json())
-    .then(data => {
+    .then((response) => response.json())
+    .then((data) => {
       if (data.success) {
         const imageUrl = data.data.display_url;
 
-        localStorage.setItem('profile_img', imageUrl);
+        localStorage.setItem("profile_img", imageUrl);
 
         const token = localStorage.getItem("authToken");
         const userId = localStorage.getItem("user_id");
 
-        fetch(`http://127.0.0.1:8000/authentication/user_detail_profile/${userId}/`, {
-          method: "PUT",
-          headers: {
-            Authorization: `Token ${token}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ profile_img: imageUrl }),
-        })
-          .then(response => {
+        fetch(
+          `http://127.0.0.1:8000/authentication/user_detail_profile/${userId}/`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `token ${token}`,
+            },
+            body: JSON.stringify({ profile_img: imageUrl }),
+          }
+        )
+          .then((response) => {
             if (!response.ok) {
-              throw new Error('Network response was not ok');
+              throw new Error("Network response was not ok");
             }
             return response.json();
           })
-          .then(data => {
+          .then((data) => {
             console.log("Image URL saved to backend successfully:", data);
           })
-          .catch(error => {
+          .catch((error) => {
             console.error("Error:", error);
           });
       } else {
         console.error("ImgBB upload failed:", data);
       }
     })
-    .catch(error => {
+    .catch((error) => {
       console.error("Error uploading image:", error);
     });
 }
