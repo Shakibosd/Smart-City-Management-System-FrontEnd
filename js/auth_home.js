@@ -1,88 +1,339 @@
-let map;
+//Filter and Transport List
+const API_BASE_URL = "http://127.0.0.1:8000/public_transport/";
 
-// Array of markers
-let markers = [
-  {
-    coordinates: { lat: 53.46283320275885, lng: -2.248211115991157 },
-    iconImage: "https://img.icons8.com/fluent/48/000000/marker-storm.png",
-    content: "<h5>Habiganj, Bangladesh</h5>",
-  },
-  {
-    coordinates: { lat: 53.463842391942, lng: -2.247733682839402 },
-  },
-];
+async function fetchTransportList() {
+  const searchValue = document.getElementById("searchInput").value;
+
+  try {
+    const response = await fetch(
+      `${API_BASE_URL}transport_filter/?search=${searchValue}`
+    );
+    const data = await response.json();
+
+    const transportList = document.getElementById("transportList");
+    transportList.innerHTML = "";
+    data.results.forEach((transport) => {
+      const transportCard = `
+         <div class="col-md-4 mb-4">
+            <div class="card bg-dark text-light hovers" style="border-radius: 15px;">
+              <img src="${transport.bus_img}" class="card-img-top" alt="${transport.route_name} Image" style="border-radius: 15px 15px 0 0; height: 200px; object-fit: cover;">
+              <div class="card-body">
+                <h6 class="card-title"><b>Route Name >> ${transport.route_name}</b></h6>
+                <p class="card-text">Bus Number >> ${transport.bus_number}</p>
+                <p class="card-text">Available Seats >> ${transport.available_seats}</p>
+                <a href="./bus_details.html?id=${transport.id}" class="gradient-btn" style="text-decoration: none;">Details</a>
+              </div>
+            </div>
+         </div>`;
+      transportList.innerHTML += transportCard;
+    });
+
+    if (data.results.length === 0) {
+      transportList.innerHTML = `<p class="text-center">No transport found matching "${searchValue}".</p>`;
+    }
+  } catch (error) {
+    console.error("Error fetching transport data:", error);
+  }
+}
+
+//function call
+fetchTransportList();
+
+//bas location update
+async function updateLocation() {
+  const busNumber = document.getElementById("busNumber").value;
+  const latitude = document.getElementById("latitude").value;
+  const longitude = document.getElementById("longitude").value;
+  const token = localStorage.getItem("authToken");
+
+  try {
+    const response = await fetch(
+      `${API_BASE_URL}update_location/${busNumber}/`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `token ${token}`,
+        },
+        body: JSON.stringify({
+          latitude: latitude,
+          longitude: longitude,
+        }),
+      }
+    );
+
+    const data = await response.json();
+
+    if (response.ok) {
+      document.getElementById("updateStatus").innerText = data.status;
+      const successId = document.getElementById("updateStatus");
+      successId.style =
+        "background-color: green; color: white; padding: 10px; border-radius: 10px; text-align: center; width: 50%;";
+    } else {
+      document.getElementById("updateStatus").innerText =
+        data.error || "Failed to update location.";
+      const errorId = document.getElementById("updateStatus");
+      errorId.style =
+        "background-color:red; color: white; padding: 10px; border-radius: 10px; text-align: center; width: 50%;";
+    }
+  } catch (error) {
+    console.error("Error updating location:", error);
+    document.getElementById("updateStatus").innerText =
+      "Error updating location.";
+  }
+}
+
+//bus live location tracking
+let map;
+let busMarker;
 
 function initMap() {
-  const options = {
-    zoom: 16,
-    center: { lat: 53.46312701980667, lng: -2.2472026054971903 },
-  };
-
-  map = new google.maps.Map(document.getElementById("map"), options);
-
-  // Listen to map click
-  google.maps.event.addListener(map, "click", function (event) {
-    addMarker({ coordinates: event.latLng });
+  const defaultLocation = { lat: 23.8103, lng: 90.4125 }; // Dhaka coordinates
+  map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 12,
+    center: defaultLocation,
   });
 
-  for (let i = 0; i < markers.length; i++) {
-    addMarker(markers[i]);
-  }
+  // Start WebSocket connection for live tracking
+  const socket = new WebSocket("ws://your-websocket-url/ws/live_tracking/");
 
-  drawDirection();
-}
-
-function addMarker(prop) {
-  let marker = new google.maps.Marker({
-    position: prop.coordinates,
-    map: map,
-  });
-
-  if (prop.iconImage) {
-    marker.setIcon(prop.iconImage);
-  }
-
-  if (prop.content) {
-    let information = new google.maps.InfoWindow({
-      content: prop.content,
-    });
-
-    marker.addListener("click", function () {
-      information.open(map, marker);
-    });
-  }
-}
-
-function drawDirection() {
-  const directionService = new google.maps.DirectionsService();
-  const directionRenderer = new google.maps.DirectionsRenderer();
-
-  directionRenderer.setMap(map);
-
-  calculationAndDisplayRoute(directionService, directionRenderer);
-}
-
-function calculationAndDisplayRoute(directionService, directionRenderer) {
-  const start = { lat: 53.46279485096965, lng: -2.2514995069397745 };
-  const end = { lat: 53.46344635618052, lng: -2.249321553337068 };
-  const request = {
-    origin: start,
-    destination: end,
-    travelMode: google.maps.TravelMode.DRIVING,
+  socket.onmessage = function (event) {
+    const data = JSON.parse(event.data);
+    updateBusLocation(data.location);
   };
+}
 
-  directionService.route(request, function (response, status) {
-    if (status === google.maps.DirectionsStatus.OK) {
-      directionRenderer.setDirections(response);
-      let myRoute = response.routes[0];
-      let txt = "";
-      for (let i = 0; i < myRoute.legs[0].steps.length; i++) {
-        txt += myRoute.legs[0].steps[i].instructions + "<br />";
+function updateBusLocation(location) {
+  const { latitude, longitude } = location;
+
+  if (!busMarker) {
+    busMarker = new google.maps.Marker({
+      position: { lat: latitude, lng: longitude },
+      map: map,
+      title: "Bus Location",
+    });
+  } else {
+    busMarker.setPosition({ lat: latitude, lng: longitude });
+  }
+
+  map.setCenter({ lat: latitude, lng: longitude });
+}
+
+//public safty services
+function fetchEmergencyServices() {
+  fetch("http://127.0.0.1:8000/public_safety/safety/", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => {
+      if (!res.ok) {
+        const data = res.json();
+        console.log(data);
       }
+      return res.json();
+    })
 
-      document.getElementById("directions").innerHTML = txt;
-    } else {
-      console.error("Directions request failed due to " + status);
+    .then((data) => {
+      console.log(data);
+      const emergencyServicesContainer =
+        document.getElementById("emergencyServices");
+      emergencyServicesContainer.innerHTML = "";
+      const serviceCards = data
+        .map(
+          (service) => `
+        <div class="col-md-4 p-2 hovers">
+          <div class="card bg-dark text-light" style="border-radius: 15px;">
+            <div class="card-body">
+              <h5 class="card-title"> Name >> ${service.name}</h5>
+              <p class="card-text">Phone Number >> ${service.phone_number}</p>
+              <p class="card-text">Available >> ${service.times_dates}</p>
+            </div>
+          </div>
+        </div>
+      `
+        )
+        .join("");
+      emergencyServicesContainer.innerHTML = serviceCards;
+    })
+    .catch((error) => {
+      console.error("Error fetching emergency services data:", error);
+    });
+}
+
+fetchEmergencyServices();
+
+//traffic management
+function fetchTrafficStatus() {
+  fetch("http://127.0.0.1:8000/traffic_management/traffic_status/", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return res.json();
+    })
+    .then((data) => {
+      const trafficStatusContainer = document.getElementById("trafficList");
+      trafficStatusContainer.innerHTML = "";
+
+      const statusCards = data
+        .map((status) => {
+          let color;
+
+          if (status.status === "Clear") {
+            color = "green";
+          } else if (status.status === "Moderate Traffic") {
+            color = "orange";
+          } else if (status.status === "Heavy Traffic") {
+            color = "red";
+          }
+          return `
+          <div class="col-md-4 p-2 hovers">
+            <div class="card text-light bg-dark" style="border-radius: 15px;">
+              <div class="card-body">
+                <h5 class="card-title">Location >> ${status.location}</h5>
+                <p class="card-text">Status >> <span  style="background-color: ${color}; padding: 5px; border-radius: 5px;">${status.status}</span></p>
+                <p class="card-text">Last Update >> ${status.last_update}</p>
+                <a class="gradient-btn" href="#help" style="text-decoration: none;">Help</a>
+              </div>
+            </div>
+          </div>
+        `;
+        })
+        .join("");
+      trafficStatusContainer.innerHTML = statusCards;
+    })
+    .catch((error) => {
+      console.error("Error fetching traffic status data:", error);
+    });
+}
+
+fetchTrafficStatus();
+
+//report system
+function fetchIncidentReports() {
+  fetch("http://127.0.0.1:8000/reporting_system/reports/", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => {
+      if (!res.ok) {
+        const data = res.json();
+        console.log(data);
+      }
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
+      const incidentReportsContainer =
+        document.getElementById("incidentReports");
+      incidentReportsContainer.innerHTML = "";
+
+      const reportCards = data
+        .map(
+          (report) => `
+        <div class="col-md-4 p-2 hovers">
+          <div class="card bg-dark text-light" style="border-radius: 15px;">
+            <div class="card-body">
+              <h5 class="card-title">Incident Type >> ${report.incident_type
+            }</h5>
+              <p class="card-text">Description >> ${report.description.slice(
+              0,
+              110
+            )}</p>
+              <p class="card-text">Reported By >> ${report.reported_by}</p>
+              <p class="card-text">Location >> ${report.location}</p>
+              <p class="card-text">Report Date >> ${report.report_date}</p>
+              <a href="#help" class="gradient-btn-1" style="text-decoration: none;">Help</a>
+            </div>
+          </div>
+        </div>
+      `
+        )
+        .join("");
+
+      incidentReportsContainer.innerHTML = reportCards;
+    })
+    .catch((error) => {
+      console.error("Error fetching incident reports data:", error);
+    });
+}
+
+// function call
+fetchIncidentReports();
+
+
+//daynamic data frontend show
+function fetchAnalyticsData() {
+  fetch("http://127.0.0.1:8000/data_analytics/analytics/", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    }
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      const latestData = data[data.length - 1];
+      updateUI(latestData);
+    })
+    .catch(error => {
+      console.error("Error fetching analytics data:", error);
+    });
+}
+
+//graph
+function updateUI(data) {
+  document.getElementById('total-users').textContent = data.total_users;
+  document.getElementById('total-transactions').textContent = data.total_transactions;
+  document.getElementById('traffic-issues').textContent = data.traffic_issues;
+
+  const ctx = document.getElementById('myChart').getContext('2d');
+  const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Total Users', 'Total Transactions', 'Traffic Issues'],
+      datasets: [{
+        label: '# of Votes',
+        data: [data.total_users, data.total_transactions, data.traffic_issues],
+        backgroundColor: [
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        color: [
+          'white',
+          'white',
+          'white'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
     }
   });
 }
+
+fetchAnalyticsData();
