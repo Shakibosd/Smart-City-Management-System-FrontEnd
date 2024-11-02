@@ -28,15 +28,15 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //Rite Click Not Allowed
-// document.addEventListener("contextmenu", function (e) {
-//   e.preventDefault();
-//   alert("Right click is disabled!");
-// });
+document.addEventListener("contextmenu", function (e) {
+  e.preventDefault();
+  alert("Right click is disabled!");
+});
 
-// document.onkeydown = function (e) {
-//   if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
-//     alert("Inspecting elements is disabled!");
-//     return false;
-//   }
-// };
+document.onkeydown = function (e) {
+  if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
+    alert("Inspecting elements is disabled!");
+    return false;
+  }
+};
 

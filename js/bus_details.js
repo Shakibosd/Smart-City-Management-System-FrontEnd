@@ -1,4 +1,5 @@
-const API_BASE_URL = "http://127.0.0.1:8000/public_transport/";
+//transport details review and payment
+const API_BASE_URL = "https://smart-city-silk.vercel.app/public_transport/";
 
 const urlParams = new URLSearchParams(window.location.search);
 const busId = urlParams.get("id");
@@ -26,7 +27,7 @@ async function fetchBusDetails() {
                         <a class="gradient-btn" style="text-decoration: none;" data-bs-toggle="modal" data-bs-target="#reviewModal">Review</a>
                     </small>
                     <small>
-                        <a class="gradient-btn-1" style="text-decoration: none;" href="http://127.0.0.1:8000/payment_system/payment/" target="_blank">Payment</a>
+                        <a class="gradient-btn-1" style="text-decoration: none;" href="https://smart-city-silk.vercel.app/payment_system/payment/" target="_blank">Payment</a>
                     </small>
                 </div>
             </div>
@@ -93,15 +94,17 @@ async function fetchBusDetails() {
         </div>
         <div id="reviewsContainer" class="d-flex gap-3"></div>
         `;
+        //review function call
     fetchReviews();
   } catch (error) {
     console.error("Error fetching bus details:", error);
   }
 }
-
+//function call
 fetchBusDetails();
 
-const API_BASE_URL_REVIEW = "http://127.0.0.1:8000/reviews/";
+//review submit
+const API_BASE_URL_REVIEW = "https://smart-city-silk.vercel.app/reviews/";
 
 async function submitReview() {
   const rating = document.getElementById("rating").value;
@@ -134,6 +137,7 @@ async function submitReview() {
   }
 }
 
+//user review frontend show
 async function fetchReviews() {
   try {
     const response = await fetch(
@@ -170,8 +174,9 @@ async function fetchReviews() {
   }
 }
 
+//edit review
 async function editReview(reviewId, rating, comment) {
-    // Show modal and populate fields with current review data
+    // Show modal
     const editModal = new bootstrap.Modal(
       document.getElementById("editReviewModal")
     );
@@ -213,6 +218,7 @@ async function editReview(reviewId, rating, comment) {
     editModal.show();
   }
   
+  //delete review
   async function deleteReview(reviewId) {
     const token = localStorage.getItem("authToken");
   
@@ -240,31 +246,3 @@ async function editReview(reviewId, rating, comment) {
     }
   }
   
-
-//payment sslcommerz
-// document.getElementById('payment-button').addEventListener('click', function (event) {
-//     event.preventDefault();
-//     const token = localStorage.getItem("authToken");
-//     fetch("http://127.0.0.1:8000/payment_system/payment/", {
-//         method: "GET",
-//         headers: {
-//             "Content-Type": "application/json",
-//             Authorization: `token ${token}`,
-//         },
-//     })
-//         .then(response => response.json())
-//         .then(data => {
-//             console.log(data);
-
-//             if (data.status === "SUCCESS" && data.GatewayPageURL) {
-//                 window.location.href = data.GatewayPageURL;
-//             } else {
-//                 alert("Payment initiation failed. Please try again later.");
-//             }
-
-//         })
-//         .catch(error => {
-//             console.error("Error initiating payment:", error);
-//             alert("An error occurred. Please try again.");
-//         });
-// });

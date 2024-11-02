@@ -16,10 +16,10 @@
 
 body {
     background-color: rgb(0, 0, 0, 0.9) !important;
-    /* -webkit-user-select: none;
+    -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none; */
+    user-select: none;
 }
 
 .my-logo {

@@ -59,7 +59,7 @@ const handleRegister = async (event) => {
       console.log("Register Data : ", registerData);
 
       const response = await fetch(
-        "http://127.0.0.1:8000/authentication/register/",
+        "https://smart-city-silk.vercel.app/authentication/register/",
         {
           method: "POST",
           headers: {
@@ -101,7 +101,7 @@ const handleLogin = (event) => {
 
   console.log("Login Data : ", loginData);
 
-  fetch("http://127.0.0.1:8000/authentication/login/", {
+  fetch("https://smart-city-silk.vercel.app/authentication/login/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -137,7 +137,7 @@ const handleLogout = () => {
     console.log(token);
     console.log(user_id);
 
-    fetch("http://127.0.0.1:8000/authentication/logout/", {
+    fetch("https://smart-city-silk.vercel.app/authentication/logout/", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

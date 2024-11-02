@@ -1,5 +1,5 @@
 //Filter and Transport List
-const API_BASE_URL = "http://127.0.0.1:8000/public_transport/";
+const API_BASE_URL = "https://smart-city-silk.vercel.app/public_transport/";
 
 async function fetchTransportList() {
   const searchValue = document.getElementById("searchInput").value;
@@ -121,7 +121,7 @@ function updateBusLocation(location) {
 
 //public safty services
 function fetchEmergencyServices() {
-  fetch("http://127.0.0.1:8000/public_safety/safety/", {
+  fetch("https://smart-city-silk.vercel.app/public_safety/safety/", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -161,12 +161,12 @@ function fetchEmergencyServices() {
       console.error("Error fetching emergency services data:", error);
     });
 }
-
+//function call
 fetchEmergencyServices();
 
 //traffic management
 function fetchTrafficStatus() {
-  fetch("http://127.0.0.1:8000/traffic_management/traffic_status/", {
+  fetch("https://smart-city-silk.vercel.app/traffic_management/traffic_status/", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -213,12 +213,12 @@ function fetchTrafficStatus() {
       console.error("Error fetching traffic status data:", error);
     });
 }
-
+//function call
 fetchTrafficStatus();
 
 //report system
 function fetchIncidentReports() {
-  fetch("http://127.0.0.1:8000/reporting_system/reports/", {
+  fetch("https://smart-city-silk.vercel.app/reporting_system/reports/", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -273,7 +273,7 @@ fetchIncidentReports();
 
 //daynamic data frontend show
 function fetchAnalyticsData() {
-  fetch("http://127.0.0.1:8000/data_analytics/analytics/", {
+  fetch("https://smart-city-silk.vercel.app/data_analytics/analytics/", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -335,5 +335,5 @@ function updateUI(data) {
     }
   });
 }
-
+//function call
 fetchAnalyticsData();

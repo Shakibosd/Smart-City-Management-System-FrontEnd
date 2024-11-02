@@ -1,8 +1,9 @@
+//user profile details
 const profileDetails = () => {
   const token = localStorage.getItem("authToken");
   const userId = localStorage.getItem("user_id");
 
-  fetch(`http://127.0.0.1:8000/authentication/user_detail_profile/${userId}/`, {
+  fetch(`https://smart-city-silk.vercel.app/authentication/user_detail_profile/${userId}/`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -36,6 +37,7 @@ const profileDetails = () => {
     });
 };
 
+//update profile
 const updateProfile = () => {
   const token = localStorage.getItem("authToken");
   const userId = localStorage.getItem("user_id");
@@ -52,7 +54,7 @@ const updateProfile = () => {
     date_of_birth: document.getElementById("date_of_birth").value,
   };
 
-  fetch(`http://127.0.0.1:8000/authentication/user_detail_profile/${userId}/`, {
+  fetch(`https://smart-city-silk.vercel.app/authentication/user_detail_profile/${userId}/`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -77,10 +79,11 @@ const updateProfile = () => {
       );
     });
 };
-
+//function call
 profileDetails();
 updateProfile();
 
+//edit profile image
 function previewImage(event) {
   const img = document.getElementById("profile_img");
   const file = event.target.files[0];
@@ -105,7 +108,7 @@ function previewImage(event) {
         const userId = localStorage.getItem("user_id");
 
         fetch(
-          `http://127.0.0.1:8000/authentication/user_detail_profile/${userId}/`,
+          `https://smart-city-silk.vercel.app/authentication/user_detail_profile/${userId}/`,
           {
             method: "PUT",
             headers: {
@@ -135,5 +138,5 @@ function previewImage(event) {
       console.error("Error uploading image:", error);
     });
 }
-
+//function call
 previewImage();

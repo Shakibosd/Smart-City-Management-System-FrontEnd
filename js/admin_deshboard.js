@@ -1,7 +1,7 @@
 async function fetchTransportData() {
     try {
         const response = await fetch(
-            "http://127.0.0.1:8000/public_transport/transport/"
+            "https://smart-city-silk.vercel.app/public_transport/transport/"
         );
         if (!response.ok) {
             throw new Error("Network response was not ok");
@@ -50,7 +50,7 @@ function displayTransportCards(data) {
 
 async function openEditModal(transportId) {
     try {
-        const response = await fetch(`http://127.0.0.1:8000/public_transport/transport/${transportId}/`);
+        const response = await fetch(`https://smart-city-silk.vercel.app/public_transport/transport/${transportId}/`);
         if (!response.ok) {
             throw new Error('Transport not found');
         }
@@ -140,7 +140,7 @@ async function updateTransport(event) {
     }
 
     try {
-        const response = await fetch(`http://127.0.0.1:8000/public_transport/transport/${transportId}/`, {
+        const response = await fetch(`https://smart-city-silk.vercel.app/public_transport/transport/${transportId}/`, {
             method: "PUT",
             body: formData,
         });
@@ -162,7 +162,7 @@ async function updateTransport(event) {
 async function deleteTransport(transportId) {
     if (confirm("Are you sure you want to delete this transport?")) {
         try {
-            const response = await fetch(`http://127.0.0.1:8000/public_transport/transport/${transportId}/`, {
+            const response = await fetch(`https://smart-city-silk.vercel.app/public_transport/transport/${transportId}/`, {
                 method: 'DELETE',
             });
             if (!response.ok) {
@@ -184,7 +184,7 @@ fetchTransportData();
 //user list
 const fetchUserList = () => {
     const token = localStorage.getItem("authToken");
-    fetch("http://127.0.0.1:8000/authentication/user_list_profile/", {
+    fetch("https://smart-city-silk.vercel.app/authentication/user_list_profile/", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -286,7 +286,7 @@ document
         const token = localStorage.getItem("authToken");
         try {
             const response = await fetch(
-                "http://127.0.0.1:8000/public_transport/transport/",
+                "https://smart-city-silk.vercel.app/public_transport/transport/",
                 {
                     method: "POST",
                     headers: {
@@ -313,7 +313,7 @@ document
 
 //daynamic data frontend show
 function fetchAnalyticsData() {
-    fetch("http://127.0.0.1:8000/data_analytics/analytics/", {
+    fetch("https://smart-city-silk.vercel.app/data_analytics/analytics/", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",

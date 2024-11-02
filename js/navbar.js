@@ -1,3 +1,4 @@
+//navbar daynamic append
 fetch("navbar.html")
   .then((res) => res.text())
   .then((data) => {
@@ -7,7 +8,7 @@ fetch("navbar.html")
     const token = localStorage.getItem("authToken");
 
     if (token) {
-      fetch("http://127.0.0.1:8000/admins/admins/", {
+      fetch("https://smart-city-silk.vercel.app/admins/admins/", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
