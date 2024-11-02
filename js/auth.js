@@ -124,7 +124,7 @@ const handleLogin = (event) => {
     })
     .catch((error) => {
       console.log("Login Error", error.message);
-      alert("Login Failed: " + error.message); // Use error.message instead of err.message
+      alert("Login Failed: " + error.message); 
     });
 };
 

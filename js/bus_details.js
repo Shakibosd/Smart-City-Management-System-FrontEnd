@@ -25,10 +25,12 @@ async function fetchBusDetails() {
                     <small>
                         <a class="gradient-btn" style="text-decoration: none;" data-bs-toggle="modal" data-bs-target="#reviewModal">Review</a>
                     </small>
+                    <small>
+                        <a class="gradient-btn-1" style="text-decoration: none;" href="http://127.0.0.1:8000/payment_system/payment/" target="_blank">Payment</a>
+                    </small>
                 </div>
             </div>
         </div>
-
         <!-- Review Modal -->
         <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -59,36 +61,36 @@ async function fetchBusDetails() {
                 </div>
             </div>
         </div>
-<!-- Edit Review Modal -->
-<div class="modal fade" id="editReviewModal" tabindex="-1" aria-labelledby="editReviewModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editReviewModalLabel">Edit Review</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="editReviewForm">
-                    <div class="mb-3">
-                        <label for="editRating" class="form-label">Rating</label>
-                        <select id="editRating" class="form-select">
-                            <option value="⭐">⭐</option>
-                            <option value="⭐⭐">⭐⭐</option>
-                            <option value="⭐⭐⭐">⭐⭐⭐</option>
-                            <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
-                            <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
-                        </select>
+        <!-- Edit Review Modal -->
+        <div class="modal fade" id="editReviewModal" tabindex="-1" aria-labelledby="editReviewModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editReviewModalLabel">Edit Review</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="mb-3">
-                        <label for="editComment" class="form-label">Comment</label>
-                        <textarea class="form-control" id="editComment" rows="3"></textarea>
+                    <div class="modal-body">
+                        <form id="editReviewForm">
+                            <div class="mb-3">
+                                <label for="editRating" class="form-label">Rating</label>
+                                <select id="editRating" class="form-select">
+                                    <option value="⭐">⭐</option>
+                                    <option value="⭐⭐">⭐⭐</option>
+                                    <option value="⭐⭐⭐">⭐⭐⭐</option>
+                                    <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
+                                    <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editComment" class="form-label">Comment</label>
+                                <textarea class="form-control" id="editComment" rows="3"></textarea>
+                            </div>
+                            <button type="button" id="submitEdit" class="gradient-btn">Save Changes</button>
+                        </form>
                     </div>
-                    <button type="button" id="submitEdit" class="btn btn-primary">Save Changes</button>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
-</div>
         <div id="reviewsContainer" class="d-flex gap-3"></div>
         `;
     fetchReviews();

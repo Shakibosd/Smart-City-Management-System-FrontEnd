@@ -54,9 +54,6 @@ fetch("navbar.html")
             <a class="nav-link text-light" href="./contact.html"><b>Contact</b></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-light" href="./abouts.html"><b>About</b></a>
-        </li>
-        <li class="nav-item">
             <a class="nav-link text-light" href="./signup.html"><b>Register</b></a>
         </li>
         <li class="nav-item">
