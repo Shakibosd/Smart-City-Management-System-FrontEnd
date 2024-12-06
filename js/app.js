@@ -27,16 +27,31 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-//Rite Click Not Allowed
-document.addEventListener("contextmenu", function (e) {
-  e.preventDefault();
-  alert("Right click is disabled!");
+// //Rite Click Not Allowed
+// document.addEventListener("contextmenu", function (e) {
+//   e.preventDefault();
+//   alert("Right click is disabled!");
+// });
+
+// document.onkeydown = function (e) {
+//   if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
+//     alert("Inspecting elements is disabled!");
+//     return false;
+//   }
+// };
+
+//auto slide swiper
+document.addEventListener("DOMContentLoaded", function() {
+  const swiper = new Swiper('.swiper', {
+      loop: true, 
+      autoplay: {
+          delay: 2000, 
+          disableOnInteraction: false, 
+      },
+      pagination: {
+          el: '.swiper-pagination',
+          clickable: true, 
+      },
+      navigation: false, 
+  });
 });
-
-document.onkeydown = function (e) {
-  if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
-    alert("Inspecting elements is disabled!");
-    return false;
-  }
-};
-

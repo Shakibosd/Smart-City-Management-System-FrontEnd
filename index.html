@@ -48,18 +48,40 @@
                 height: 100%;
                 object-fit: cover;
             }
+
+            /* Mobile specific styles */
+            @media (max-width: 768px) {
+                .swiper-slide img {
+                    height: 300px;
+                    border-radius: 20px;
+                }
+
+                .mob-swp {
+                    padding-top: 60px;
+                }
+                .mob-swp-1 {
+                    box-shadow: 0px 3px 5px gray;
+                }
+            }
+
+            @media (min-width: 1012px) {
+                .lep-swp {
+                    padding-top: 150px;
+                }
+                .lep-swp-1 {
+                    box-shadow: 0px 3px 5px gray;
+                }
+            }
         </style>
         <section>
-            <div class="container" style="padding-top: 150px;">
-                <div class="swiper" style="border-radius: 15px;">
+            <div class="container mob-swp lep-swp">
+                <div class="swiper lep-swp-1" style="border-radius: 20px;">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="./images/city1.png" alt=""></div>
-                        <div class="swiper-slide"><img src="./images/city2.png" alt=""></div>
-                        <div class="swiper-slide"><img src="./images/city3.png" alt=""></div>
+                        <div class="swiper-slide"><img class="mob-swp-1" src="./images/city6.png" alt=""></div>
+                        <div class="swiper-slide"><img class="mob-swp-1" src="./images/city5.png" alt=""></div>
+                        <div class="swiper-slide"><img class="mob-swp-1" src="./images/city4.png" alt=""></div>
                     </div>
                     <div class="swiper-pagination"></div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
                 </div>
             </div>
         </section>
@@ -68,7 +90,7 @@
             <div class="container pt-4">
                 <h2 class="section-title text-light text-center">Our Services</h2>
                 <br>
-                <div id="services" class="bg-dark text-light p-5" style="border-radius: 15px;">
+                <div id="services" class="hovers bg-dark text-light p-5" style="border-radius: 15px;">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="text-center">
@@ -106,7 +128,7 @@
             <br>
             <h2 class="section-title text-center text-light">Features</h2>
             <br>
-            <div class="bg-dark text-light p-5" style="border-radius: 15px;">
+            <div class="bg-dark hovers text-light p-5" style="border-radius: 15px;">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="text-center">
@@ -143,7 +165,7 @@
             <br>
             <h2 class="section-title text-center text-light">Testimonials</h2>
             <br>
-            <div class="bg-dark text-light p-5" style="border-radius: 15px;">
+            <div class="bg-dark text-light p-5 hovers" style="border-radius: 15px;">
                 <div class="row">
                     <div class="col-md-6 text-center">
                         <p>"This platform has transformed our city!"</p>
@@ -161,7 +183,7 @@
             <br>
             <h2 class="section-title text-center text-light">Latest Blog Posts</h2>
             <br>
-            <div class="bg-dark text-light p-5" style="border-radius: 15px;">
+            <div class="bg-dark text-light p-5 hovers" style="border-radius: 15px;">
                 <div class="row">
                     <div class="col-md-4 text-center">
                         <div class="blog-icon">
