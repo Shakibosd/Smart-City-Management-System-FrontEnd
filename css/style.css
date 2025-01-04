@@ -344,7 +344,7 @@ body {
 }
 
 .hovers {
-    box-shadow: 0px 3px 5px gray;
+    box-shadow: 4px 4px 8px rgb(128, 128, 128, 0.3);
 }
 
 .home__blob {
