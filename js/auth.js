@@ -119,8 +119,9 @@ const handleLogin = (event) => {
       console.log("Auth Token Received : ", data.token);
       localStorage.setItem("authToken", data.token);
       localStorage.setItem("user_id", data.user_id);
+      localStorage.setItem("username", loginData.username);
       alert("Logged In Successfully!!!");
-      window.location.href = "./profile.html";
+      window.location.href = `./profile.html?YourUserName=${loginData.username}`;
     })
     .catch((error) => {
       console.log("Login Error", error.message);
@@ -133,9 +134,11 @@ const handleLogout = () => {
   if (confirm("Are You Sure Want To Logout?")) {
     const token = localStorage.getItem("authToken");
     const user_id = localStorage.getItem("user_id");
+    const username = localStorage.getItem("username");
 
     console.log(token);
     console.log(user_id);
+    console.log(username);
 
     fetch("https://smart-city-silk.vercel.app/authentication/logout/", {
       method: "GET",
@@ -149,6 +152,7 @@ const handleLogout = () => {
         if (res.ok) {
           localStorage.removeItem("authToken");
           localStorage.removeItem("user_id");
+          localStorage.removeItem("username");
           window.location.href = "./login.html";
         } else {
           console.log("Logout Failed");
