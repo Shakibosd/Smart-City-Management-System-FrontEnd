@@ -26,10 +26,10 @@ fetch("navbar.html")
                     <a class="nav-link text-light" href="./profile.html"><b>Profile</b></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-info" href="./admin_deshboard.html"><b>Admin Deshboard</b></a>
+                    <a class="nav-link text-light" href="./admin_deshboard.html"><b>Admin Deshboard</b></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-danger" onclick="handleLogout()"><b>Logout</b></a>
+                <li class="">
+                    <a class="nav-link text-light" onclick="handleLogout()"><b>Logout</b></a>
                 </li>
             `;
           } else {
@@ -40,8 +40,8 @@ fetch("navbar.html")
                 <li class="nav-item">
                     <a class="nav-link text-light" href="./profile.html"><b>Profile</b></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-danger" onclick="handleLogout()"><b>Logout</b></a>
+                <li>
+                    <a class="nav-link text-light" onclick="handleLogout()"><b>Logout</b></a>
                 </li>
             `;
           }

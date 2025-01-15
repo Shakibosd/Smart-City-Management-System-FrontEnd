@@ -88,13 +88,12 @@ let map;
 let busMarker;
 
 function initMap() {
-  const defaultLocation = { lat: 23.8103, lng: 90.4125 }; // Dhaka coordinates
+  const defaultLocation = { lat: 23.8103, lng: 90.4125 };
   map = new google.maps.Map(document.getElementById("map"), {
     zoom: 12,
     center: defaultLocation,
   });
 
-  // Start WebSocket connection for live tracking
   const socket = new WebSocket("ws://your-websocket-url/ws/live_tracking/");
 
   socket.onmessage = function (event) {
@@ -143,8 +142,8 @@ function fetchEmergencyServices() {
       const serviceCards = data
         .map(
           (service) => `
-        <div class="col-md-4 p-2 hovers">
-          <div class="card bg-dark text-light" style="border-radius: 15px;">
+        <div class="col-md-4 p-2">
+          <div class="card bg-dark hovers text-light" style="border-radius: 15px;">
             <div class="card-body">
               <h5 class="card-title"> Name >> ${service.name}</h5>
               <p class="card-text">Phone Number >> ${service.phone_number}</p>
@@ -194,8 +193,8 @@ function fetchTrafficStatus() {
             color = "red";
           }
           return `
-          <div class="col-md-4 p-2 hovers">
-            <div class="card text-light bg-dark" style="border-radius: 15px;">
+          <div class="col-md-4 p-2">
+            <div class="card text-light hovers bg-dark" style="border-radius: 15px;">
               <div class="card-body">
                 <h5 class="card-title">Location >> ${status.location}</h5>
                 <p class="card-text">Status >> <span  style="background-color: ${color}; padding: 5px; border-radius: 5px;">${status.status}</span></p>
@@ -240,8 +239,8 @@ function fetchIncidentReports() {
       const reportCards = data
         .map(
           (report) => `
-        <div class="col-md-4 p-2 hovers">
-          <div class="card bg-dark text-light" style="border-radius: 15px;">
+        <div class="col-md-4 p-2">
+          <div class="card bg-dark hovers text-light" style="border-radius: 15px;">
             <div class="card-body">
               <h5 class="card-title">Incident Type >> ${report.incident_type
             }</h5>

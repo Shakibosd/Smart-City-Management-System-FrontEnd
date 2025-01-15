@@ -56,7 +56,6 @@ async function openEditModal(transportId) {
         }
         const transportData = await response.json();
 
-        // Populate the form with the fetched data
         document.getElementById("edit-transport-id").value = transportData.id;
         document.getElementById("edit-route_name").value = transportData.route_name;
         document.getElementById("edit-bus_number").value = transportData.bus_number;
@@ -81,7 +80,7 @@ function closeEditModal() {
 }
 
 async function uploadImageToImageBB(file) {
-    const apiKey = "2bc3cad9a1fb82d25c2c1bb0ab49b035"; // Your ImageBB API Key
+    const apiKey = "2bc3cad9a1fb82d25c2c1bb0ab49b035"; 
     const formData = new FormData();
     formData.append("image", file);
 
@@ -96,7 +95,7 @@ async function uploadImageToImageBB(file) {
         }
 
         const data = await response.json();
-        return data.data.url; // Return the URL of the uploaded image
+        return data.data.url; 
     } catch (error) {
         console.error("Error uploading image:", error);
         throw error;
@@ -132,7 +131,7 @@ async function updateTransport(event) {
     if (busImageInput.files.length > 0) {
         try {
             const imageUrl = await uploadImageToImageBB(busImageInput.files[0]);
-            formData.append("bus_img", imageUrl); // Append the image URL to form data
+            formData.append("bus_img", imageUrl); 
         } catch (error) {
             console.error("Failed to upload image:", error);
             return;
@@ -151,7 +150,6 @@ async function updateTransport(event) {
 
         const result = await response.json();
         console.log("Transport updated successfully:", result);
-        // Close modal or update UI accordingly
     } catch (error) {
         console.error("Error updating transport:", error);
     }
@@ -169,7 +167,7 @@ async function deleteTransport(transportId) {
                 throw new Error('Failed to delete transport');
             }
             alert('Transport deleted successfully');
-            fetchTransportData(); // Refresh the transport data
+            fetchTransportData(); 
         } catch (error) {
             console.error('Error deleting transport:', error);
             alert('Error deleting transport: ' + error.message);
@@ -178,7 +176,6 @@ async function deleteTransport(transportId) {
 }
 
 
-// Initial fetch of transport data
 fetchTransportData();
 
 //user list
@@ -216,7 +213,7 @@ const displayUsers = (users) => {
         const userCard = `
         <div class="mx-auto w-100 p-2 hovers">
           <div class="card bg-dark text-light p-3">
-              <img src="${user.profile_img}" class="img-fluid mx-auto d-block" style="border-radius: 50%; max-width: 100%; height: auto; max-height: 340px;">
+              <img src="${user.profile_img}" class="img-fluid mx-auto"  style="width: 450px; height: 400px; border-radius: 50%;">
               <br/>
               <h3 class="card-text">Id >> ${user.id}</h3>
               <p class="card-text">Date Of Birth >> ${user.date_of_birth}</p>
