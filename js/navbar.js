@@ -26,9 +26,18 @@ fetch("navbar.html")
                 <li class="nav-item">
                     <a class="nav-link text-light" href="./profile.html?YourUserName=${username}"><b>Profile</b></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" href="./admin_deshboard.html"><b>Admin Deshboard</b></a>
-                </li>
+                <h5>
+                  <div class="dropdown">
+                    <a style="text-decoration: none; color: white;" class="dropdown-toggle nav_border" type="button" data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                      <b>Admin</b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="./admin_deshboard.html"><b>Deshboard</b></a></li>
+                        <li><a class="dropdown-item" href="./user.html"><b>User List</b></a></li>
+                    </ul>
+                  </div>
+                </h5>
                 <li class="">
                     <a class="nav-link text-light" onclick="handleLogout()"><b>Logout</b></a>
                 </li>
