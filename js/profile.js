@@ -3,7 +3,7 @@ const profileDetails = () => {
   const token = localStorage.getItem("authToken");
   const userId = localStorage.getItem("user_id");
 
-  fetch(`https://smart-city-management-system-backend.onrender.com/authentication/user_detail_profile/${userId}/`, {
+  fetch(`http://127.0.0.1:8000/authentication/user_detail_profile/${userId}/`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -54,7 +54,7 @@ const updateProfile = () => {
     date_of_birth: document.getElementById("date_of_birth").value,
   };
 
-  fetch(`https://smart-city-management-system-backend.onrender.com/authentication/user_detail_profile/${userId}/`, {
+  fetch(`http://127.0.0.1:8000/authentication/user_detail_profile/${userId}/`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -108,7 +108,7 @@ function previewImage(event) {
         const userId = localStorage.getItem("user_id");
 
         fetch(
-          `https://smart-city-management-system-backend.onrender.com/authentication/user_detail_profile/${userId}/`,
+          `http://127.0.0.1:8000/authentication/user_detail_profile/${userId}/`,
           {
             method: "PUT",
             headers: {

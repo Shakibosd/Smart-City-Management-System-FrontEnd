@@ -1,5 +1,5 @@
 //transport details review and payment
-const API_BASE_URL = "https://smart-city-management-system-backend.onrender.com/public_transport/";
+const API_BASE_URL = "http://127.0.0.1:8000/public_transport/";
 
 const urlParams = new URLSearchParams(window.location.search);
 const busId = urlParams.get("id");
@@ -101,7 +101,7 @@ async function fetchBusDetails() {
 fetchBusDetails();
 
 //review submit
-const API_BASE_URL_REVIEW = "https://smart-city-management-system-backend.onrender.com/reviews/";
+const API_BASE_URL_REVIEW = "http://127.0.0.1:8000/reviews/";
 
 async function submitReview() {
   const rating = document.getElementById("rating").value;

@@ -1,7 +1,7 @@
 async function fetchTransportData() {
     try {
         const response = await fetch(
-            "https://smart-city-management-system-backend.onrender.com/public_transport/transport/"
+            "http://127.0.0.1:8000/public_transport/transport/"
         );
         if (!response.ok) {
             throw new Error("Network response was not ok");
@@ -50,7 +50,7 @@ function displayTransportCards(data) {
 
 async function openEditModal(transportId) {
     try {
-        const response = await fetch(`https://smart-city-management-system-backend.onrender.com/public_transport/transport/${transportId}/`);
+        const response = await fetch(`http://127.0.0.1:8000/public_transport/transport/${transportId}/`);
         if (!response.ok) {
             throw new Error('Transport not found');
         }
@@ -139,7 +139,7 @@ async function updateTransport(event) {
     }
 
     try {
-        const response = await fetch(`https://smart-city-management-system-backend.onrender.com/public_transport/transport/${transportId}/`, {
+        const response = await fetch(`http://127.0.0.1:8000/public_transport/transport/${transportId}/`, {
             method: "PUT",
             body: formData,
         });
@@ -160,7 +160,7 @@ async function updateTransport(event) {
 async function deleteTransport(transportId) {
     if (confirm("Are you sure you want to delete this transport?")) {
         try {
-            const response = await fetch(`https://smart-city-management-system-backend.onrender.com/public_transport/transport/${transportId}/`, {
+            const response = await fetch(`http://127.0.0.1:8000/public_transport/transport/${transportId}/`, {
                 method: 'DELETE',
             });
             if (!response.ok) {
@@ -228,7 +228,7 @@ document
         const token = localStorage.getItem("authToken");
         try {
             const response = await fetch(
-                "https://smart-city-management-system-backend.onrender.com/public_transport/transport/",
+                "http://127.0.0.1:8000/public_transport/transport/",
                 {
                     method: "POST",
                     headers: {

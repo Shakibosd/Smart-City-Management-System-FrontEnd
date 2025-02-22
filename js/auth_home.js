@@ -1,5 +1,5 @@
 //Filter and Transport List
-const API_BASE_URL = "https://smart-city-management-system-backend.onrender.com/public_transport/";
+const API_BASE_URL = "http://127.0.0.1:8000/public_transport/";
 
 async function fetchTransportList() {
   const searchValue = document.getElementById("searchInput").value;
@@ -120,7 +120,7 @@ function updateBusLocation(location) {
 
 //public safty services
 function fetchEmergencyServices() {
-  fetch("https://smart-city-management-system-backend.onrender.com/public_safety/safety/", {
+  fetch("http://127.0.0.1:8000/public_safety/safety/", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -165,7 +165,7 @@ fetchEmergencyServices();
 
 //traffic management
 function fetchTrafficStatus() {
-  fetch("https://smart-city-management-system-backend.onrender.com/traffic_management/traffic_status/", {
+  fetch("http://127.0.0.1:8000/traffic_management/traffic_status/", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -217,7 +217,7 @@ fetchTrafficStatus();
 
 //report system
 function fetchIncidentReports() {
-  fetch("https://smart-city-management-system-backend.onrender.com/reporting_system/reports/", {
+  fetch("http://127.0.0.1:8000/reporting_system/reports/", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

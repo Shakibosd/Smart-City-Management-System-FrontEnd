@@ -1,7 +1,7 @@
 //user list
 const fetchUserList = () => {
     const token = localStorage.getItem("authToken");
-    fetch("https://smart-city-management-system-backend.onrender.com/authentication/user_list_profile/", {
+    fetch("http://127.0.0.1:8000/authentication/user_list_profile/", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
