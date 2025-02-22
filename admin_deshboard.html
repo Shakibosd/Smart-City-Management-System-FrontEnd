@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- meta tag -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- my web logo -->
+    <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- my web title -->
+    <title>Admin Deshboard</title>
+    <!-- boxines icon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- bootstrap cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <section>
+            <div id="navbar"></div>
+            <script src="./js/navbar.js"></script>
+        </section>
+    </header>
+
+    <main>
+        <section>
+            <div class="container top">
+                <br>
+                <h1 class="text-center text-light">Add Public Transport</h1>
+                <br>
+                <form id="transport-form" class="bg-dark text-light p-3 rounded row g-3 hovers">
+                    <div class="form-group">
+                        <label for="route_name">Route Name : </label>
+                        <input type="text" class="form-control"
+                            style="border:  none; background-color: rgba(0, 0, 0, 0.5); color: whitesmoke;"
+                            id="route_name" placeholder="Route Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bus_number">Bus Number : </label>
+                        <input type="text" class="form-control"
+                            style="border:  none; background-color: rgba(0, 0, 0, 0.5); color: whitesmoke;"
+                            id="bus_number" placeholder="Bus Number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="available_seats">Available Seats : </label>
+                        <input type="number" class="form-control"
+                            style="border:  none; background-color: rgba(0, 0, 0, 0.5); color: whitesmoke;"
+                            id="available_seats" placeholder="Available Seats" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="next_arrival_time">Next Arrival Time : </label>
+                        <input type="text" class="form-control"
+                            style="border:  none; background-color: rgba(0, 0, 0, 0.5); color: whitesmoke;"
+                            id="next_arrival_time" placeholder="Next Arrival Time" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="current_latitude">Current Latitude : </label>
+                        <input type="text" class="form-control"
+                            style="border:  none; background-color: rgba(0, 0, 0, 0.5); color: whitesmoke;"
+                            id="current_latitude" placeholder="Current Latitude" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="current_longitude">Current Longitude : </label>
+                        <input type="text" class="form-control"
+                            style="border:  none; background-color: rgba(0, 0, 0, 0.5); color: whitesmoke;"
+                            id="current_longitude" placeholder="Curret Longitude" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last_update">Last Update : </label>
+                        <input type="text" class="form-control"
+                            style="border:  none; background-color: rgba(0, 0, 0, 0.5); color: whitesmoke;"
+                            id="last_update" placeholder="Last Update" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="schedules">Schedules : </label>
+                        <textarea class="form-control"
+                            style="border:  none; background-color: rgba(0, 0, 0, 0.5); color: whitesmoke;"
+                            id="schedules" placeholder="Bus Schedules" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="bus_img">Bus Image : </label>
+                        <input type="file" class="form-control"
+                            style="border:  none; background-color: rgba(0, 0, 0, 0.5); color: whitesmoke;" id="bus_img"
+                            required>
+                    </div>
+                    <br>
+                    <button type="submit" class="gradient-btn-1">Add Transport</button>
+                </form>
+            </div>
+        </section>
+        <br>
+        <section>
+            <!-- Edit Transport Modal -->
+            <h1 class="text-center text-light">Edit Form</h1>
+            <br>
+            <div id="edit-transport-modal" style="display: none;" class="container bg-bark text-light">
+                <form id="edit-transport-form" class="bg-dark text-light p-3 rounded row g-3"
+                    onsubmit="updateTransport(event)">
+                    <h4>Edit Transport</h4>
+                    <input type="hidden" id="edit-transport-id" />
+                    <div class="form-group">
+                        <label for="edit-route_name">Route Name : </label>
+                        <input type="text" id="edit-route_name" class="form-control"
+                            style="border:  none; background-color: rgba(0, 0, 0, 0.5); color: whitesmoke;" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-bus_number">Bus Number : </label>
+                        <input type="text" id="edit-bus_number" class="form-control"
+                            style="border:  none; background-color: rgba(0, 0, 0, 0.5); color: whitesmoke;" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-available_seats">Available Seats : </label>
+                        <input type="number" id="edit-available_seats" class="form-control"
+                            style="border:  none; background-color: rgba(0, 0, 0, 0.5); color: whitesmoke;" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-next_arrival_time">Next Arrival Time : </label>
+                        <input type="text" id="edit-next_arrival_time" class="form-control"
+                            style="border:  none; background-color: rgba(0, 0, 0, 0.5); color: whitesmoke;" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-current_latitude">Current Latitude : </label>
+                        <input type="text" id="edit-current_latitude" class="form-control"
+                            style="border:  none; background-color: rgba(0, 0, 0, 0.5); color: whitesmoke;" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-current_longitude">Current Longitude : </label>
+                        <input type="text" id="edit-current_longitude" class="form-control"
+                            style="border:  none; background-color: rgba(0, 0, 0, 0.5); color: whitesmoke;" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-last_update">Last Update : </label>
+                        <input type="text" id="edit-last_update" class="form-control"
+                            style="border:  none; background-color: rgba(0, 0, 0, 0.5); color: whitesmoke;" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-bus_img">Bus Image : </label>
+                        <input type="file" id="edit-bus_img" class="form-control"
+                            style="border:  none; background-color: rgba(0, 0, 0, 0.5); color: whitesmoke;" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-schedules">Schedules : </label>
+                        <textarea id="edit-schedules" class="form-control"
+                            style="border:  none; background-color: rgba(0, 0, 0, 0.5); color: whitesmoke;"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-launched_officially_dateTime">Launched Officially DateTime : </label>
+                        <input type="text" id="edit-launched_officially_dateTime" class="form-control"
+                            style="border:  none; background-color: rgba(0, 0, 0, 0.5); color: whitesmoke;" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeEditModal()">Cancel</button>
+                </form>
+            </div>
+        </section>
+        <br>
+        <section>
+            <br>
+            <div class="container">
+                <h1 class="text-center text-light">Transport List</h1>
+                <div id="transport-container" class="row"></div>
+            </div>
+        </section>
+        <br />
+    </main>
+
+    <!-- footer -->
+    <footer>
+        <div id="footer"></div>
+        <script src="./js/footer.js"></script>
+    </footer>
+
+    <!-- auth js -->
+    <script src="./js/auth.js"></script>
+
+    <!-- app js -->
+    <script src="./js/admin_deshboard.js"></script>
+
+    <!-- app js -->
+    <script src="./js/app.js"></script>
+
+    <!-- bootstrap script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <!-- chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+
+</html>

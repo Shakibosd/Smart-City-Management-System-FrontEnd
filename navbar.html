@@ -1,0 +1,42 @@
+<section>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #3c4b64;" id="fixed_top">
+        <div class="container-fluid container">
+            <a href="./index.html">
+                <img class="navbar-brand my-logo" src="./images/logo.png">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                </ul>
+                <form class="d-flex gap-4" id="nav-element" style="list-style: none;">
+
+                </form>
+            </div>
+        </div>
+    </nav>
+</section>
+
+<!-- Navbar CSS -->
+<style>
+    @media (max-width: 768px) {
+        .navbar {
+            padding: 1rem;
+        }
+
+        .navbar-nav,
+        form {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .nav-item {
+            margin: 5px 0;
+        }
+    }
+</style>

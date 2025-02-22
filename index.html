@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- meta tag -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- my web logo -->
+  <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon" />
+  <!-- css -->
+  <link rel="stylesheet" href="./css/style.css" />
+  <!-- my web title -->
+  <title>Smart City Management System</title>
+  <!-- boxines icon -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+  <!-- bootstrap cdn -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <!-- swiper -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+
+<body>
+  <header>
+    <section>
+      <div id="navbar"></div>
+      <script src="./js/navbar.js"></script>
+    </section>
+  </header>
+  <main>
+    <!-- Swiper -->
+    <style>
+      .swiper {
+        width: 100%;
+        height: 500px;
+      }
+
+      .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+
+      .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* Mobile specific styles */
+      @media (max-width: 768px) {
+        .swiper-slide img {
+          height: 300px;
+          border-radius: 20px;
+        }
+
+        .mob-swp {
+          padding-top: 60px;
+        }
+
+        .mob-swp-1 {
+          box-shadow: 0px 3px 5px gray;
+        }
+      }
+
+      @media (min-width: 1012px) {
+        .lep-swp {
+          padding-top: 150px;
+        }
+
+        .lep-swp-1 {
+          box-shadow: 0px 3px 5px gray;
+        }
+      }
+    </style>
+    <section>
+      <div class="container mob-swp lep-swp">
+        <div class="swiper lep-swp-1" style="border-radius: 20px">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img class="mob-swp-1" src="./images/city6.png" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <img class="mob-swp-1" src="./images/city5.png" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <img class="mob-swp-1" src="./images/city4.png" alt="" />
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+    <!-- Services Section -->
+    <section>
+      <div class="container pt-4">
+        <h2 class="section-title text-light text-center">Our Services</h2>
+        <br />
+        <div id="services" class="hovers bg-dark text-light p-5" style="border-radius: 15px">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="text-center">
+                <div class="services-icon">
+                  <h1><b>🏙️</b></h1>
+                </div>
+                <h3>Urban Planning</h3>
+                <p>Strategic planning for sustainable cities.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="text-center">
+                <div class="services-icon">
+                  <h1><b>🚦</b></h1>
+                </div>
+                <h3>Traffic Management</h3>
+                <p>Real-time traffic monitoring and control.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="text-center">
+                <div class="services-icon">
+                  <h1><b>💧</b></h1>
+                </div>
+                <h3>Water Management</h3>
+                <p>Efficient water resource management systems.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Features Section -->
+    <section id="features" class="container">
+      <br />
+      <h2 class="section-title text-center text-light">Features</h2>
+      <br />
+      <div class="bg-dark hovers text-light p-5" style="border-radius: 15px">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="text-center">
+              <div class="feature-icon">
+                <h1><b>🚮</b></h1>
+              </div>
+              <h3>Smart Waste Management</h3>
+              <p>Efficient waste collection and monitoring.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="text-center">
+              <div class="feature-icon">
+                <h1><b>🚀</b></h1>
+              </div>
+              <h3>Energy Management</h3>
+              <p>Optimize energy consumption with smart grids.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="text-center">
+              <div class="feature-icon">
+                <h1><b>👩🏻‍🏭</b></h1>
+              </div>
+              <h3>Public Safety</h3>
+              <p>Enhanced safety through surveillance and alerts.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="container">
+      <br />
+      <h2 class="section-title text-center text-light">Testimonials</h2>
+      <br />
+      <div class="bg-dark text-light p-5 hovers" style="border-radius: 15px">
+        <div class="row">
+          <div class="col-md-6 text-center">
+            <p>"This platform has transformed our city!"</p>
+            <p>- City Mayor</p>
+          </div>
+          <div class="col-md-6 text-center">
+            <p>"Innovative solutions for modern problems."</p>
+            <p>- Local Business Owner</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Blog Section -->
+    <section id="blog" class="container">
+      <br />
+      <h2 class="section-title text-center text-light">Latest Blog Posts</h2>
+      <br />
+      <div class="bg-dark text-light p-5 hovers" style="border-radius: 15px">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <div class="blog-icon">
+              <h1><b>🏙️</b></h1>
+            </div>
+            <h3>Understanding Smart City</h3>
+            <p>Insights into the concept of smart cities.</p>
+          </div>
+          <div class="col-md-4 text-center">
+            <div class="blo-icon">
+              <h1><b>🌐</b></h1>
+            </div>
+            <h3>Technologies Shaping Urban</h3>
+            <p>Latest technologies in city management.</p>
+          </div>
+          <div class="col-md-4 text-center">
+            <div class="blog-icon">
+              <h1><b>🚗</b></h1>
+            </div>
+            <h3>Future of Urban Mobility</h3>
+            <p>Exploring the future of transport in cities.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <br />
+        <h2 class="text-center text-center text-light">
+          Frequently Asked Questions (FAQ) 🔥
+        </h2>
+        <br />
+        <div class="faq-item bg-dark text-light p-3" style="border-radius: 10px">
+          <h5 class="faq-title" onclick="toggleAnswer(this)">
+            <span class="faq-toggle">➕</span> What is Smart City Management?
+          </h5>
+          <div class="faq-answer">
+            <p>
+              Smart City Management refers to the use of digital technology to
+              enhance performance and well-being in urban areas.
+            </p>
+          </div>
+        </div>
+        <br />
+        <div class="faq-item bg-dark text-light p-3" style="border-radius: 10px">
+          <h5 class="faq-title" onclick="toggleAnswer(this)">
+            <span class="faq-toggle">➕</span> How does it work?
+          </h5>
+          <div class="faq-answer">
+            <p>
+              It integrates various urban systems such as transportation,
+              energy, and waste management to improve efficiency and quality
+              of life.
+            </p>
+          </div>
+        </div>
+        <br />
+        <div class="faq-item bg-dark text-light p-3" style="border-radius: 10px">
+          <h5 class="faq-title" onclick="toggleAnswer(this)">
+            <span class="faq-toggle">➕</span> What are the benefits of a
+            smart city?
+          </h5>
+          <div class="faq-answer">
+            <p>
+              Benefits include improved public services, reduced environmental
+              impact, enhanced quality of life, and economic growth.
+            </p>
+          </div>
+        </div>
+        <br />
+        <div class="faq-item bg-dark text-light p-3" style="border-radius: 10px">
+          <h5 class="faq-title" onclick="toggleAnswer(this)">
+            <span class="faq-toggle">➕</span> Is data privacy maintained?
+          </h5>
+          <div class="faq-answer">
+            <p>
+              Yes, data privacy is a top priority, and strict measures are in
+              place to protect citizens' information.
+            </p>
+          </div>
+        </div>
+        <br />
+        <div class="faq-item bg-dark text-light p-3" style="border-radius: 10px">
+          <h5 class="faq-title" onclick="toggleAnswer(this)">
+            <span class="faq-toggle">➕</span> How can citizens participate?
+          </h5>
+          <div class="faq-answer">
+            <p>
+              Citizens can participate by providing feedback, reporting
+              issues, and engaging with community initiatives.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <style>
+      .faq-title {
+        cursor: pointer;
+      }
+
+      .faq-answer {
+        display: none;
+      }
+    </style>
+  </main>
+  <br />
+
+  <!-- footer -->
+  <footer>
+    <div id="footer"></div>
+    <script src="./js/footer.js"></script>
+  </footer>
+
+  <!-- app js -->
+  <script src="./js/app.js"></script>
+
+  <!-- bootstrap scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
+
+  <!-- swiper -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</body>
+
+</html>

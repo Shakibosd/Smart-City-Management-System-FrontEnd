@@ -1,0 +1,506 @@
+:root {
+    /*Color*/
+    --hue-color: 230;
+    /* Purple 250 - Green 142 - Blue 230 - Pink 340 */
+
+    /* HSL*/
+    --first-color: hsl(var(--hue-color), 69%, 61%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    left: 0;
+    right: 0;
+}
+
+body {
+    background-color: rgb(0, 0, 0, 0.9) !important;
+    /* -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; */
+}
+
+.my-logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 55px;
+}
+
+
+#fixed_top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.top {
+    padding-top: 105px;
+}
+
+.none {
+    color: #ff7fc2;
+    text-decoration: none;
+}
+
+#password {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#password::placeholder {
+    color: #ffffff;
+    opacity: 1;
+}
+
+#email {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#email::placeholder {
+    color: #ffffff;
+    opacity: 1;
+}
+
+#first_name {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#first_name::placeholder {
+    color: #ffffff;
+    opacity: 1;
+}
+
+#last_name {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#last_name::placeholder {
+    color: #ffffff;
+    opacity: 1;
+}
+
+#confirm_password {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#confirm_password::placeholder {
+    color: #ffffff;
+    opacity: 1;
+}
+
+#username {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#username::placeholder {
+    color: #ffffff;
+    opacity: 1;
+}
+
+#user {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#user::placeholder {
+    color: #ffffff;
+    opacity: 1;
+}
+
+#profile_img {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#profile_img::placeholder {
+    color: #ffffff;
+    opacity: 1;
+}
+
+#phone_number {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#phone_number::placeholder {
+    color: #ffffff;
+    opacity: 1;
+}
+
+#gender {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#gender::placeholder {
+    color: #ffffff;
+    opacity: 1;
+    border: none;
+}
+
+#religion {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#religion::placeholder {
+    color: #ffffff;
+    opacity: 1;
+    border: none;
+}
+
+#age {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#age::placeholder {
+    color: #ffffff;
+    opacity: 1;
+    border: none;
+}
+
+#date_of_birth {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#date_of_birth::placeholder {
+    color: #ffffff;
+    opacity: 1;
+    border: none;
+}
+
+#new_password {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#new_password::placeholder {
+    color: #ffffff;
+    opacity: 1;
+    border: none;
+}
+
+#name {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#name::placeholder {
+    color: #ffffff;
+    opacity: 1;
+    border: none;
+}
+
+#message {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#message::placeholder {
+    color: #ffffff;
+    opacity: 1;
+    border: none;
+}
+
+#longitude {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#longitude::placeholder {
+    color: #ffffff;
+    opacity: 1;
+    border: none;
+}
+
+#latitude {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#latitude::placeholder {
+    color: #ffffff;
+    opacity: 1;
+    border: none;
+}
+
+#busNumber {
+    background-color: rgba(52, 58, 64, 1);
+    border: none;
+    color: white;
+}
+
+#busNumber::placeholder {
+    color: #ffffff;
+    opacity: 1;
+    border: none;
+}
+
+#searchInput {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+}
+
+#searchInput::placeholder {
+    color: #ffffff;
+    opacity: 1;
+    border: none;
+}
+
+.gradient-btn {
+    color: #ffffff;
+    background-color: transparent;
+    background-image: linear-gradient(120deg, #b47cfd 20%, #ff7fc2 60%);
+    box-shadow: -25px 0px 20px -10px #FFB07B inset;
+    border-style: solid;
+    border-width: 0px 0px 0px 0px;
+    border-color: #b47cfd;
+    border-radius: 30px 30px 30px 30px;
+    padding: 10px 20px;
+}
+
+.gradient-btn-1 {
+    color: #ffffff;
+    background-color: transparent;
+    background-image: linear-gradient(120deg, #6dd5ed 20%, #2193b0 60%);
+    box-shadow: -25px 0px 20px -10px #70e1f5 inset;
+    border-style: solid;
+    border-width: 0px;
+    border-color: #6dd5ed;
+    border-radius: 30px;
+    padding: 10px 20px;
+}
+
+.gradient-btn:hover {
+    box-shadow: 0 8px 20px rgba(128, 128, 128, 0.7);
+}
+
+.gradient-btn-1:hover {
+    box-shadow: 0 8px 20px rgba(128, 128, 128, 0.7);
+}
+
+.input-group-text {
+    cursor: pointer;
+}
+
+/* profile */
+.profile-container {
+    width: 100%;
+    max-width: 600px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info p {
+    margin: 10px 0;
+}
+
+#editButton,
+#saveButton {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#editForm input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.hovers {
+    box-shadow: 4px 4px 8px rgb(128, 128, 128, 0.3);
+}
+
+.home__blob {
+    fill: var(--first-color);
+}
+
+.home__blob-img {
+    width: 180px;
+}
+
+.home__blob {
+    width: 370px;
+}
+
+.wow {
+    background: linear-gradient(90deg, #411ef2 15.94%, #65c4e4 89.53%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-item:hover {
+    background-color: gray;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.documentesion:hover {
+    background-color: gray;
+    color: whitesmoke;
+    padding: 5px 10px;
+    border-radius: 55px;
+}
+
+.carousel {
+    position: relative;
+    height: 50vh;
+}
+
+.carousel-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel-slide:first-child {
+    opacity: 1;
+}
+
+.section {
+    padding: 2em;
+    text-align: center;
+}
+
+.service-container {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+.service-card {
+    background: #555;
+    padding: 1em;
+    width: 200px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.behind-image {
+    width: 30%;
+    height: 300px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.behind-scenes-content {
+    display: flex;
+    align-items: center;
+    gap: 55px;
+    background-color: darkslategray;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+@media (max-width: 767px) {
+    .behind-scenes-section {
+        padding: 10px;
+    }
+
+    .behind-scenes-section img {
+        width: 100%;
+    }
+
+    .behind-scenes-content {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 767px){
+    #reviewsContainer{
+        flex-direction: column; 
+        width: 400%;
+    }
+}
+
+/* footer */
+footer {
+    background: rgba(47, 79, 79, 0.6);
+    background-image: url('..//images/banner.png');
+}
+
+.social-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+}
+
+.social-icon.facebook {
+    color: #1877f2;
+}
+
+.social-icon.instagram {
+    color: #e4405f;
+}
+
+.social-icon.linkedin {
+    color: #0a66c2;
+}
+
+.social-icon.youtube {
+    color: #ff0000;
+}
+
+.social-icon.github {
+    color: #fff;
+}
+
+.social-icon.twitter {
+    color: #1da1f2;
+}

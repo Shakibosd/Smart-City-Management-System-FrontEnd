@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- meta tag -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- my web logo -->
+    <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- my web title -->
+    <title>Auth Home</title>
+    <!-- boxines icon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- bootstrap cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+</head>
+
+<body>
+    <header>
+        <section>
+            <div id="navbar"></div>
+            <script src="./js/navbar.js"></script>
+        </section>
+    </header>
+    <br>
+    <main>
+        <!-- Behind the Scenes Section -->
+        <section class="top">
+            <div id="behind-scenes" class="behind-scenes-section container">
+                <h2 class="text-center text-light"> Smart City Management</h2>
+                <br>
+                <div class="behind-scenes-content hovers">
+                    <img src="./images/city1.png" alt="Flower Preparation" class="behind-image">
+                    <p class="text-light">The Smart City Management system is designed to enhance urban living by
+                        integrating technology into city infrastructure and services. It utilizes data collection and
+                        analysis to optimize resources, improve public transportation, and enhance citizen engagement.
+                        By providing real-time information and efficient services, it facilitates better decision-making
+                        for city planners and residents. This system promotes sustainability, reduces traffic
+                        congestion, and enhances the overall quality of life in urban areas. Ultimately, it aims to
+                        create a more connected and responsive city environment that meets the needs of its inhabitants.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <br>
+        <section>
+            <h1 class="text-center text-light">How To Take Service From Smart City</h1>
+            <div class="text-center text-light">
+                <h1><b><i class='bx bx-down-arrow-alt'></i></b></h1>
+            </div>
+            <div class="container">
+                <video src="./images/videoplayback.mp4" controls class="card bg-dark text-light hovers"
+                    style="width: 100%; height: 400px; border-radius: 15px;"></video>
+            </div>
+        </section>
+        <br>
+        <section>
+            <h1 class="text-center text-light">Live Bus Tracking</h1>
+            <br>
+            <div class="container">
+                <div id="map" class="hovers"></div>
+                <p id="directions"></p>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <h2 class="text-center mb-4 text-light">Public Transport Information</h2>
+
+                <!-- Filter Form -->
+                <div class="mb-4">
+                    <input type="text" id="searchInput" class="form-control p-3 hovers"
+                        placeholder="Search by route name or bus number">
+                    <button onclick="fetchTransportList()" class="gradient-btn mt-3">Search</button>
+                </div>
+
+                <!-- Transport List Section -->
+                <div id="transportList" class="row"></div>
+            </div>
+        </section>
+        <section>
+            <!-- Update Location Section -->
+            <div class="container">
+                <h3 class="text-center text-light">Update Location</h3>
+                <br>
+                <form id="updateLocationForm" class="bg-dark text-light p-4 hovers" style="border-radius: 15px;">
+                    <input type="text" id="busNumber" placeholder="Bus Number" class="form-control mb-2" required>
+                    <input type="text" id="latitude" placeholder="Latitude" class="form-control mb-2" required>
+                    <input type="text" id="longitude" placeholder="Longitude" class="form-control mb-2" required>
+                    <button type="button" onclick="updateLocation(); updateBusLocation()" class="gradient-btn">Update
+                        Location</button>
+                </form>
+                <p id="updateStatus" class="mt-3"></p>
+            </div>
+        </section>
+        <br>
+        <section>
+            <div class="text-center text-light">
+                <h1 id="help">Emergency Services in Bangladesh</h1>
+                <small>For general complaints or assistance, make sure the information you provide is correct and
+                    acceptable before calling.</small>
+            </div>
+            <br>
+            <div class="container">
+                <div class="row" id="emergencyServices">
+
+                </div>
+            </div>
+        </section>
+        <br>
+        <section>
+            <div class="text-center text-light">
+                <h1>Traffic Status</h1>
+                <small>Click the Help button to troubleshoot traffic issues.</small>
+            </div>
+            <div class="container mt-4">
+                <div id="trafficList" class="row">
+
+                </div>
+            </div>
+        </section>
+        <br>
+        <section>
+            <div class="text-center text-light">
+                <h1>Incident Reports</h1>
+                <small>Informes de Incidencias Haga clic en el botón de ayuda para solucionar el problema.</small>
+            </div>
+            <div class="container mt-4">
+                <div id="incidentReports" class="row">
+
+                </div>
+            </div>
+        </section>
+        <br>
+    </main>
+    <!-- footer -->
+    <footer>
+        <div id="footer"></div>
+        <script src="./js/footer.js"></script>
+    </footer>
+
+    <!-- auth js -->
+    <script src="./js/auth.js"></script>
+
+    <!-- app js -->
+    <script src="./js/app.js"></script>
+
+    <!-- app js -->
+    <script src="./js/auth_home.js"></script>
+
+    <!-- bootstrap script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <!-- map api -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6m5uTwrOIRKuol_llToK2VWQ-camRg8o&callback=initMap"
+        async defer></script>
+
+    <!-- swiper -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+
+</html>
