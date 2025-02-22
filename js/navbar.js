@@ -9,7 +9,7 @@ fetch("navbar.html")
     const username = localStorage.getItem("username");
 
     if (token) {
-      fetch("https://smart-city-management.onrender.com/admins/admins/", {
+      fetch("https://smart-city-management-system-backend.onrender.com/admins/admins/", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

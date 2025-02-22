@@ -59,7 +59,7 @@ const handleRegister = async (event) => {
       console.log("Register Data : ", registerData);
 
       const response = await fetch(
-        "https://smart-city-management.onrender.com/authentication/register/",
+        "https://smart-city-management-system-backend.onrender.com/authentication/register/",
         {
           method: "POST",
           headers: {
@@ -101,7 +101,7 @@ const handleLogin = (event) => {
 
   console.log("Login Data : ", loginData);
 
-  fetch("https://smart-city-management.onrender.com/authentication/login/", {
+  fetch("https://smart-city-management-system-backend.onrender.com/authentication/login/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -140,7 +140,7 @@ const handleLogout = () => {
     console.log(user_id);
     console.log(username);
 
-    fetch("https://smart-city-management.onrender.com/authentication/logout/", {
+    fetch("https://smart-city-management-system-backend.onrender.com/authentication/logout/", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
